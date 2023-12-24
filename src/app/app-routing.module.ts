@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { AddNotesComponent } from './add-notes/add-notes.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path:'user/addnote',component:AddNotesComponent
+  },
+  {
+    path:'user/dashboard',component:DashboardComponent
   },
   {
     path:'**',redirectTo:''
