@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Poppins', sans-serif;
+}
+/* home */
+.home-text{
+    font-weight: 600;
+    font-size: 85px;
+    line-height:100%;
+}
+.telegram{
+    background-image: url(https://e0.pxfuel.com/wallpapers/497/150/desktop-wallpaper-hopped-the-original-background-if-you-want-to-use-whatsapp-dark-mode-go-to-settings-chats-background-and-use-this-r-whatsapp.jpg);
+    background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+    .home-text{
+    font-weight: 600;
+    font-size: 70px;
+    padding: 10px;
+    line-height:100%;
+}
+  }
+  
