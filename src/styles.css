@@ -1,5 +1,6 @@
 *{
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 /* home */
 .home-text{
@@ -42,6 +43,9 @@
 .btn-hover1:hover{
     background-color: #222222;
     color: white;
+}
+a:hover{
+    color: black !important;
 }
 .btn-hover2:hover{
     background-color: #ffffff !important;

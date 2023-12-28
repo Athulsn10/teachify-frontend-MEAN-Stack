@@ -1,0 +1,10 @@
+<div class="d-flex align-items-center justify-content-center flex-wrap ms-4 mb-3">
+    <button (click)="fetchSubjects(1)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 1</button>
+    <button (click)="fetchSubjects(2)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 2</button>
+    <button (click)="fetchSubjects(3)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 3</button>
+    <button (click)="fetchSubjects(4)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 4</button>
+    <button (click)="fetchSubjects(5)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 5</button>
+    <button (click)="fetchSubjects(6)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 6</button>
+</div>
+
+<app-subject [subjects]="subjects"></app-subject>
