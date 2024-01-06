@@ -8,7 +8,8 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  SERVER_URL = "http://localhost:3000/api"
+  // SERVER_URL = "http://localhost:3000/api"
+  SERVER_URL = "https://teachify-3fxy.onrender.com"
 
   constructor(private http: HttpClient) { }
   registerUser(userDetails: any){

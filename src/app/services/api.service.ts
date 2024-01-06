@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  SERVER_URL = "http://localhost:3000"
+  // SERVER_URL = "http://localhost:3000"
+  SERVER_URL = "https://teachify-3fxy.onrender.com"
 
   constructor(private http: HttpClient) { }
 
