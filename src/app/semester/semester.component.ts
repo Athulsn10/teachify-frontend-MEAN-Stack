@@ -9,7 +9,7 @@ import { ApiService } from '../services/api.service';
 export class SemesterComponent {
 
   subjects: any[] = [];
-  semester: number = 1; // Default semester
+  semester: number = 1; 
 
   constructor(private apiService: ApiService) { }
 

@@ -1,9 +1,32 @@
 <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid my-1">
         <a class="navbar-brand d-flex align-items-center" href="">
-            <i class="fa-solid fa-circle"></i>
+            <i class="fa-solid fa-circle p-1"></i>
             <p class="fw-bolder ms-1 fs-4 p-0 m-0">Teachify</p>
         </a>
     </div>
 </nav>
-<h3 class="text-center">Bookmarks</h3>
+<h3 class="text-center" style="overflow-y: hidden;">Bookmarks</h3>
+
+<ng-container *ngIf="!userData; else loggedIn">
+<p class="text-center fs-3 mt-5 fw-bolder">LogIn to access bookmarks</p>
+<div class="d-flex align-items-center justify-content-center">
+    <button (click)="navigateToLogin()" class="btn btn-dark btn-hover2 rounded-pill shadow-sm px-5">Login</button>
+    
+</div>
+</ng-container>
+<ng-template #loggedIn>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let subject of favorites">
+            <p class="p-0 m-0 fw-bolder fs-4">{{ subject.name }}</p>
+            <p class="p-0 m-0">{{ subject.about }}</p>
+            <p class="p-0 m-0">No of modules: <span class="fw-bolder">{{subject.modules}}</span></p>
+            <div class="d-flex">
+                <button class="mt-2 btn btn-dark btn-hover2 rounded-pill px-4 d-flex align-items-center justify-content-center">
+                    <a href={{subject.link}} class="text-light" target="_blank" style="text-decoration:none;"><i class="fa-solid fa-link me-1"></i>Link</a>
+                </button> 
+                <button (click)="removeFromFav(subject._id)" class="btn-danger mt-2 ms-2 btn-hover2 btn rounded-pill px-4 d-flex align-items-center justify-content-center">Remove</button>   
+            </div>
+        </li>
+    </ul>
+</ng-template>

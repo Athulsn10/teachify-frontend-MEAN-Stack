@@ -14,7 +14,4 @@ export class ApiService {
     return this.http.get(`${this.SERVER_URL}/api/data/semester/${semester}`);
   }
 
-  userRegistration(name: string, email: string, password: string){
-    
-  }
 }

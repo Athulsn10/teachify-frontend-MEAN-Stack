@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { UserService } from '../userservices/user-service.service';
 
 @Component({
   selector: 'app-subject',
@@ -8,10 +9,23 @@ import { Component, Input } from '@angular/core';
 export class AppSubjectComponent {
   @Input() subjects: any[] = [];
 
+  constructor(private yourService: UserService) {} 
+
   getRandomColor() {
-    // List of predefined colors
     const colors = ['#ffe1cc', '#d4f6ed', '#e3dbfa', '#dff3fe', '#fbe2f4', '#eceff4'];
-    // Choose a random color from the list
     return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  addToFav(subject: any) {
+    const user = JSON.parse(localStorage.getItem('currentUser') ?? '{}');
+    const userId = user._id;
+    this.yourService.addToFavorites(userId, subject).subscribe(
+      (response) => {
+        console.log('Subject added to favorites:', response);
+      },
+      (error) => {
+        console.error('Error adding subject to favorites:', error);
+      }
+    );
   }
 }
