@@ -7,15 +7,15 @@
     <div class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center">
       <div style="width: 450px;">
         <p class="fw-semibold text-center fs-1">Welcome back</p>
-        <form>
+        <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <input ngModel name="email" type="email" class="form-control"  aria-describedby="emailHelp"
               placeholder="Enter your Email">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Your Password">
+            <input ngModel name="password" type="password" class="form-control"  placeholder="Enter Your Password">
           </div>
           <button type="submit" class="btn btn-primary w-100 btn-hover2">Login</button>
         </form>

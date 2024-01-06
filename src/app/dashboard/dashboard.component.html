@@ -5,9 +5,9 @@
             <p class="fw-bolder ms-1 fs-4 p-0 m-0">Teachify</p>
         </a>
         <div class="ms-auto d-flex nav-mob" id="navbarNav">
-            <button class="btn btn-light d-flex align-items-center rounded-pill shadow-sm px-lg-5">Add Notes<i
+            <button disabled class="btn btn-light d-flex align-items-center rounded-pill shadow-sm px-lg-5">Add Notes<i
                     class="fa-solid fa-circle-plus ms-2"></i></button>
-            <button class="btn btn-dark d-flex align-items-center rounded-pill btn-hover2 px-lg-5">Bookmarks <i
+            <button (click)="navigateToBookmarks()" class="btn btn-dark d-flex align-items-center rounded-pill btn-hover2 px-lg-5">Bookmarks <i
                     class="fa-solid fa-heart ms-2" style="color: red;"></i></button>
         </div>
         <div class="ms-auto d-flex d-lg-none" id="navbarNav">

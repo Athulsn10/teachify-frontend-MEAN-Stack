@@ -1,5 +1,3 @@
-// api.service.ts
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -12,7 +10,11 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getSubBySemester(semester: number) {
-    console.log(semester);
+    // console.log(semester);
     return this.http.get(`${this.SERVER_URL}/api/data/semester/${semester}`);
+  }
+
+  userRegistration(name: string, email: string, password: string){
+    
   }
 }

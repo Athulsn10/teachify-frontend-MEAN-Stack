@@ -7,27 +7,27 @@
         <div class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-center">
             <div style="width: 450px;">
                 <p class="fw-semibold text-center fs-1">Welcome To Teachify!</p>
-                <form>
+                <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm.value)">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label for="name" class="form-label">Username</label>
+                        <input ngModel name="name" type="text"  class="form-control"
                             placeholder="Enter your Username">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label for="email" class="form-label">Email</label>
+                        <input ngModel name="email" type="email" class="form-control" 
                             placeholder="Enter your Email">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1"
+                        <label for="password" class="form-label">Password</label>
+                        <input ngModel name="password" type="password" class="form-control" 
                             placeholder="Enter Your Password">
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                    <!-- <div class="mb-3">
+                        <label for="consfirmpassword" class="form-label">Confirm Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1"
                             placeholder="Enter Your Password">
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn btn-primary w-100 btn-hover2">Login</button>
                 </form>
                 <p class="text-center mt-3">Already a user? <a href="/user/login">Login</a></p>

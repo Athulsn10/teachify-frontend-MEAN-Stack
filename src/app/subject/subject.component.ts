@@ -11,7 +11,6 @@ export class AppSubjectComponent {
   getRandomColor() {
     // List of predefined colors
     const colors = ['#ffe1cc', '#d4f6ed', '#e3dbfa', '#dff3fe', '#fbe2f4', '#eceff4'];
-
     // Choose a random color from the list
     return colors[Math.floor(Math.random() * colors.length)];
   }

@@ -1,5 +1,3 @@
-// semester.component.ts
-
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
