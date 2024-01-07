@@ -32,6 +32,9 @@
     .nav-mob{
         display: none !important;
     }
+    .fa-brands {
+        margin-right: 0; /* or other value */
+    }
     
   }
 .btn-hover1{
