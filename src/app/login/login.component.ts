@@ -11,7 +11,7 @@ export class LoginComponent {
   constructor(private userService: UserService, private router: Router ){}
 
 loginUser(val:any){
-  console.log(val);
+  // console.log(val);
 
   this.userService.loginUser(val).subscribe(
     (response) => {

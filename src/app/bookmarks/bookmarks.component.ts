@@ -21,7 +21,7 @@ export class BookmarksComponent implements OnInit {
       this.userId = this.userData._id;
       this.userService.getFavorites(this.userId).subscribe(
         (favorites) => {
-          console.log('User favorites:', favorites);
+          // console.log('User favorites:', favorites);
           this.favorites = favorites; 
         },
         (error) => {
@@ -36,7 +36,7 @@ export class BookmarksComponent implements OnInit {
   removeFromFav(subjectId: string) {
     this.userService.removeFromFavorites(this.userId, subjectId).subscribe(
       (response) => {
-        console.log('Subject removed from favorites:', response);
+        // console.log('Subject removed from favorites:', response);
         this.favorites = this.favorites.filter(subject => subject._id !== subjectId);
       },
       (error) => {
@@ -44,8 +44,15 @@ export class BookmarksComponent implements OnInit {
       }
     );
   }
+  logoutUser(){
+    localStorage.clear();
+    location.reload();
+  }
   
   navigateToLogin(){
     this.router.navigate(['user/login']) ;
+  }
+  navigateToDashboard() {
+    this.router.navigate(['/user/dashboard']);
   }
 }

@@ -10,8 +10,7 @@ import { UserService } from '../userservices/user-service.service';
 export class RegisterComponent {
   constructor(private userService: UserService, private router: Router ){}
   registerUser(val: any){
-    console.log(val);
-
+    // console.log(val);
     this.userService.registerUser(val).subscribe(
       (response) => {
         console.log('User registration successful');

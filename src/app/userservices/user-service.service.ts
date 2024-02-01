@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError  } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
-
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,19 +31,40 @@ export class UserService {
       userId,
       subject
     };
-    return this.http.post(url, body, { headers });
+    return this.http.post(url, body, { headers }).pipe(
+      catchError((error) => {
+        // Check if the error is due to unauthorized access
+        if (error.status === 401) {
+          // Handle unauthorized access by clearing the local storage
+          localStorage.clear();
+        }
+        // Propagate the error to the caller
+        return throwError(error);
+      })
+    );
   }
   
   getFavorites(userId: string): Observable<any> {
-    const url = `${this.SERVER_URL}/data/favorites/all?userId=${userId}`;   
+    const url = `${this.SERVER_URL}/data/favorites/all?userId=${userId}`;
     // Retrieve the Bearer token from local storage
     const user = JSON.parse(localStorage.getItem('currentUser') ?? '{}');
     const token = user?.token;
-    // console.log(token);
+    // Set up HTTP headers with the Bearer token
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get(url, { headers });
+    // Make the HTTP GET request and handle errors
+    return this.http.get(url, { headers }).pipe(
+      catchError((error) => {
+        // Check if the error is due to unauthorized access
+        if (error.status === 401) {
+          // Handle unauthorized access by clearing the local storage
+          localStorage.clear();
+        }
+        // Propagate the error to the caller
+        return throwError(error);
+      })
+    );
   }
 
   removeFromFavorites(userId: string, subjectId: string): Observable<any> {
