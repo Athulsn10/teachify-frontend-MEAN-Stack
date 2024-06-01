@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,9 +10,16 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getSubBySemester(semester: number) {
+  getSubBySemester(semester: number, token: string) {
+    var headers ={}
+    if(token){
+       headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      });
+    }
+    
     // console.log(semester);
-    return this.http.get(`${this.SERVER_URL}/api/data/semester/${semester}`);
+    return this.http.get(`${this.SERVER_URL}/api/data/semester/${semester}`,{headers});
   }
 
 }
