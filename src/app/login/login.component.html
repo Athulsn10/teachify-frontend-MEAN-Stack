@@ -10,21 +10,35 @@
         <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input ngModel name="email" type="email" class="form-control"  aria-describedby="emailHelp"
-              placeholder="Enter your Email">
+            <input ngModel name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter your Email">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input ngModel name="password" type="password" class="form-control"  placeholder="Enter Your Password">
+            <input ngModel name="password" type="password" class="form-control" placeholder="Enter Your Password">
           </div>
-          <button type="submit" class="btn btn-primary w-100 btn-hover2">Login</button>
+          <button type="submit" class="btn btn-primary w-100 btn-hover2">
+            <div *ngIf="isLoading" class="spinner-border spinner-border-sm p-0 m-0 mt-1" role="status"></div>
+            <p class="p-0 m-0" *ngIf="!isLoading">Login</p>
+          </button>
         </form>
         <p class="text-center mt-3">Don't have an account? <a href="/user/register">Sign Up</a></p>
       </div>
     </div>
-    <div class="col-lg-6 col-sm-12 circle-col d-flex align-items-center justify-content-center"
-      style="background-color: #4f56d3;">
+    <div class="col-lg-6 col-sm-12 circle-col d-flex align-items-center justify-content-center" style="background-color: #4f56d3;">
       <div class="circle" style="width: 200px; height: 200px; background-color: white; border-radius: 50%;"></div>
+    </div>
+  </div>
+  
+  <!-- Toast -->
+  <div *ngIf="showToast" class="toast align-items-center  border-0 position-fixed bottom-0 end-0 m-3 show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <i class="fa-solid fa-circle p-1"></i>
+      <strong class="me-auto">Teachify</strong>
+      <small class="text-body-secondary"></small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{toastMessage}}
     </div>
   </div>
 </div>

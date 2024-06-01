@@ -6,5 +6,15 @@
     <button (click)="fetchSubjects(5)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 5</button>
     <button (click)="fetchSubjects(6)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 6</button>
 </div>
-
-<app-subject [subjects]="subjects"></app-subject>
+<div *ngIf="isloading" class="sem-spinner">
+    <div class="spinner-border"></div>
+</div>
+<div *ngIf="showLogin" class="mt-5 d-flex h-100 w-100 flex-column align-items-center justify-content-center">
+    <div class="p-5 m-5 bg-light rounded-3 shadow-sm">
+        <h3 class="p-1 m-0">Hello! <span class="fw-bolder">{{userName}}</span></h3>
+            <p class="fs-3 mt-3">{{errorMessage}}</p>
+            <button  (click)="navigateToLogin()" class="btn btn-dark w-100 mt-3 btn-hover2">Login</button>
+    </div>
+</div>
+<app-subject *ngIf="!isloading && !showLogin"  [subjects]="subjects">
+</app-subject>

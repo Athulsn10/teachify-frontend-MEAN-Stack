@@ -28,7 +28,10 @@
                         <input type="password" class="form-control" id="exampleInputPassword1"
                             placeholder="Enter Your Password">
                     </div> -->
-                    <button type="submit" class="btn btn-primary w-100 btn-hover2">Login</button>
+                    <button type="submit" class="btn btn-primary w-100 btn-hover2">
+                        <div *ngIf="isLoading" class="spinner-border spinner-border-sm p-0 m-0 mt-1" role="status"></div>
+                        <p class="p-0 m-0" *ngIf="!isLoading">Sign Up</p>
+                    </button>
                 </form>
                 <p class="text-center mt-3">Already a user? <a href="/user/login">Login</a></p>
             </div>
@@ -38,4 +41,17 @@
             <div class="circle" style="width: 200px; height: 200px; background-color: white; border-radius: 50%;"></div>
         </div>
     </div>
+    
+      <!-- Toast -->
+  <div *ngIf="showToast" class="toast align-items-center  border-0 position-fixed bottom-0 end-0 m-3 show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <i class="fa-solid fa-circle p-1"></i>
+      <strong class="me-auto">Teachify</strong>
+      <small class="text-body-secondary"></small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{toastMessage}}
+    </div>
+  </div>
 </div>
