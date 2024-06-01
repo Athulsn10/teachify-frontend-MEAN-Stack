@@ -13,19 +13,30 @@ export class BookmarksComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {}
   userData: any;
+  isLoading = false
+  showLogin = false;
+  errorMessage = ''; 
+  userName = 'User' ;
+  userToken = '';
   
   ngOnInit(): void {
     const localStorageData = localStorage.getItem('currentUser');
     if (localStorageData) {
       this.userData = JSON.parse(localStorageData);
       this.userId = this.userData._id;
+      this.userName = this.userData.name
+      this.isLoading = true;
       this.userService.getFavorites(this.userId).subscribe(
         (favorites) => {
-          // console.log('User favorites:', favorites);
           this.favorites = favorites; 
+          this.isLoading = false;
         },
         (error) => {
-          console.error('Error fetching favorites:', error);
+          this.isLoading = false;
+          if (error.status === 401){
+            this.errorMessage = 'Your Session Has Expired, Please Login Again'
+            this.showLogin = true
+          }
         }
       );
     } else {
@@ -44,6 +55,7 @@ export class BookmarksComponent implements OnInit {
       }
     );
   }
+
   logoutUser(){
     localStorage.clear();
     location.reload();
