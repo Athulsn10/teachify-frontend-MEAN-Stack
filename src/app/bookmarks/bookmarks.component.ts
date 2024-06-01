@@ -13,23 +13,23 @@ export class BookmarksComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {}
   userData: any;
-  isLoading = false
+  isLoading = true
   showLogin = false;
   errorMessage = ''; 
   userName = 'User' ;
   userToken = '';
   
   ngOnInit(): void {
+    // this.isLoading = true;
     const localStorageData = localStorage.getItem('currentUser');
     if (localStorageData) {
       this.userData = JSON.parse(localStorageData);
       this.userId = this.userData._id;
       this.userName = this.userData.name
-      this.isLoading = true;
       this.userService.getFavorites(this.userId).subscribe(
         (favorites) => {
           this.favorites = favorites; 
-          this.isLoading = false;
+          // this.isLoading = false;
         },
         (error) => {
           this.isLoading = false;
