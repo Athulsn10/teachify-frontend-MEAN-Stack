@@ -20,7 +20,7 @@ export class BookmarksComponent implements OnInit {
   userToken = '';
   
   ngOnInit(): void {
-    // this.isLoading = true;
+    this.isLoading = true;
     const localStorageData = localStorage.getItem('currentUser');
     if (localStorageData) {
       this.userData = JSON.parse(localStorageData);
@@ -29,7 +29,7 @@ export class BookmarksComponent implements OnInit {
       this.userService.getFavorites(this.userId).subscribe(
         (favorites) => {
           this.favorites = favorites; 
-          // this.isLoading = false;
+          this.isLoading = false;
         },
         (error) => {
           this.isLoading = false;
