@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center justify-content-center flex-wrap ms-4 mb-3">
+<div class="d-flex align-items-center justify-content-center flex-wrap  mb-3">
     <button (click)="fetchSubjects(1)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 1</button>
     <button (click)="fetchSubjects(2)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 2</button>
     <button (click)="fetchSubjects(3)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 3</button>
@@ -6,8 +6,8 @@
     <button (click)="fetchSubjects(5)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 5</button>
     <button (click)="fetchSubjects(6)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 6</button>
 </div>
-<div *ngIf="isloading" class="sem-spinner">
-    <div class="spinner-border"></div>
+<div *ngIf="isloading" class="load-spinner">
+    <div class="spinner-border p-1"></div>
 </div>
 <div *ngIf="showLogin" class="mt-5 d-flex h-100 w-100 flex-column align-items-center justify-content-center">
     <div class="p-5 m-5 bg-light rounded-3 shadow-sm">
