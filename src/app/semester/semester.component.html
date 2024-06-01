@@ -6,7 +6,7 @@
     <button (click)="fetchSubjects(5)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 5</button>
     <button (click)="fetchSubjects(6)" class="btn btn-dark btn-hover2 me-2 me-md-3 mb-2 mb-md-0">Semester 6</button>
 </div>
-<div *ngIf="isloading" class="load-spinner">
+<div *ngIf="isloading && !showLogin" class="load-spinner">
     <div class="spinner-border p-1"></div>
 </div>
 <div *ngIf="showLogin" class="mt-5 d-flex h-100 w-100 flex-column align-items-center justify-content-center">
