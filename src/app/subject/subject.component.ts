@@ -21,10 +21,10 @@ export class AppSubjectComponent {
     const userId = user._id;
     this.yourService.addToFavorites(userId, subject).subscribe(
       (response) => {
-        console.log('Subject added to favorites:', response);
+        // console.log('Subject added to favorites:', response);
       },
       (error) => {
-        console.error('Error adding subject to favorites:', error);
+        // console.error('Error adding subject to favorites:', error);
       }
     );
   }

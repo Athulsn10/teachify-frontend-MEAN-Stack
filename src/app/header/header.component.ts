@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   constructor(private router: Router) { }
+  
   navigateToDashboard() {
     this.router.navigate(['/user/dashboard']);
   }
@@ -20,8 +21,8 @@ export class HeaderComponent implements OnInit {
   }
   userData: any; 
   ngOnInit(): void {
-    // Fetch user data from local storage during initialization
     const localStorageData = localStorage.getItem('currentUser');
     this.userData = localStorageData ? JSON.parse(localStorageData) : null;
   }
+  
 }

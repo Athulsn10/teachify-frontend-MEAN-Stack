@@ -33,12 +33,9 @@ export class UserService {
     };
     return this.http.post(url, body, { headers }).pipe(
       catchError((error) => {
-        // Check if the error is due to unauthorized access
         if (error.status === 401) {
-          // Handle unauthorized access by clearing the local storage
           localStorage.clear();
         }
-        // Propagate the error to the caller
         return throwError(error);
       })
     );
@@ -46,22 +43,16 @@ export class UserService {
   
   getFavorites(userId: string): Observable<any> {
     const url = `${this.SERVER_URL}/data/favorites/all?userId=${userId}`;
-    // Retrieve the Bearer token from local storage
     const user = JSON.parse(localStorage.getItem('currentUser') ?? '{}');
     const token = user?.token;
-    // Set up HTTP headers with the Bearer token
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    // Make the HTTP GET request and handle errors
     return this.http.get(url, { headers }).pipe(
       catchError((error) => {
-        // Check if the error is due to unauthorized access
         if (error.status === 401) {
-          // Handle unauthorized access by clearing the local storage
           localStorage.clear();
         }
-        // Propagate the error to the caller
         return throwError(error);
       })
     );
@@ -69,7 +60,6 @@ export class UserService {
 
   removeFromFavorites(userId: string, subjectId: string): Observable<any> {
     const url = `${this.SERVER_URL}/data/favorites/remove?userId=${userId}&subjectId=${subjectId}`;
-    // Retrieve the Bearer token from local storage
     const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     const token = user?.token;
     const headers = new HttpHeaders({
